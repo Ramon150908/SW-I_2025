@@ -22,7 +22,7 @@
             $this->Preco = $preco; 
         }
 
-        public function addestoque($qtde){
+        public function addEstoque($qtde){
             if ($qtde < 0) {
                 echo"ERRO!";
             }else{
@@ -30,13 +30,15 @@
             }
         }
         
-        public function Removerestoque($qtde){
+        public function removerEstoque($qtde) {
             if ($qtde < 0) {
-                echo"ERRO!";
-            }else{
+                echo "ERRO! Quantidade inválida";
+            } elseif ($qtde > $this->Qtde) {
+                echo "ERRO! Estoque insuficiente";
+            } else {
                 $this->Qtde -= $qtde;
-            }  
-        } 
+            }
+        }
         
         public function mostrarDetalhes(){
             echo"Produto: " . $this->Nome . "<br><hr>";
